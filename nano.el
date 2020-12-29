@@ -26,12 +26,14 @@
 
 ;; Theming Command line options (this will cancel warning messages)
 (add-to-list 'command-switch-alist '("-dark"   . (lambda (args))))
+(add-to-list 'command-switch-alist '("-zenburn"   . (lambda (args))))
 (add-to-list 'command-switch-alist '("-light"  . (lambda (args))))
 (add-to-list 'command-switch-alist '("-default"  . (lambda (args))))
 
 (cond
  ((member "-default" command-line-args) t)
  ((member "-dark" command-line-args) (require 'nano-theme-dark))
+ ((member "-zenburn" command-line-args) (require 'nano-theme-zenburn))
  (t (require 'nano-theme-light)))
 
 ;; Customize support for 'emacs -q' (Optional)
