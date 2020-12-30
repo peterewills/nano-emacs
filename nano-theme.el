@@ -117,7 +117,7 @@
   (set-face 'font-lock-function-name-face             'nano-face-strong)
   (set-face 'font-lock-variable-name-face             'nano-face-strong)
   (set-face 'font-lock-builtin-face                  'nano-face-salient)
-  (set-face 'font-lock-type-face                     'nano-face-salient)
+  (set-face 'font-lock-type-face                 'nano-face-salient-alt)
   (set-face 'font-lock-keyword-face                  'nano-face-salient))
 
 

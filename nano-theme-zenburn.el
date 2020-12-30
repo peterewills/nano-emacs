@@ -17,33 +17,19 @@
 ;; ---------------------------------------------------------------------
 (require 'nano-base-colors)
 
-(defun nano-theme-set-zenburn-2 ()
-  "Apply dark Nano theme base."
-  (setq frame-background-mode     'dark)
-  (setq nano-color-foreground "#CFCFCF") ;; Light Grey
-  (setq nano-color-background "#3F3F3F") ;; Dark Grey
-  (setq nano-color-highlight  "#3F3F3F") ;; Dark Grey
-  (setq nano-color-critical   "#F0DFAF") ;; Yellow
-  (setq nano-color-salient    "#417274") ;; Blue
-  (setq nano-color-strong     "#CC9393") ;; Light Red
-  (setq nano-color-popout     "#DFAF8F") ;; Light Orange
-  (setq nano-color-subtle     "#466F46") ;; Light Grey
-  (setq nano-color-faded      "#9F9F9F") ;; Grey
-  )
-
-
 (defun nano-theme-set-zenburn ()
   "Apply dark Nano theme base."
   (setq frame-background-mode     'dark)
-  (setq nano-color-foreground "#CFCFCF") ;; Light Grey
-  (setq nano-color-background "#3F3F3F") ;; Dark Grey
-  (setq nano-color-highlight  "#6F6F6F") ;; Med. Grey
-  (setq nano-color-critical   "#A35E2E") ;; Orange
-  (setq nano-color-salient    "#F0DFAF") ;; Yellow
-  (setq nano-color-strong     "#DFAF8F") ;; Light Orange
-  (setq nano-color-popout     "#CC9393") ;; Light Red
-  (setq nano-color-subtle     "#6F6F6F") ;; Med/Light Grey
-  (setq nano-color-faded      "#7F9F7F") ;; Green
+  (setq nano-color-foreground    "#CFCFCF") ;; Light Grey
+  (setq nano-color-background    "#3F3F3F") ;; Dark Grey
+  (setq nano-color-highlight     "#6F6F6F") ;; Med. Grey
+  (setq nano-color-critical      "#A35E2E") ;; Orange
+  (setq nano-color-salient       "#F0DFAF") ;; Yellow
+  (setq nano-color-salient-alt   "#8CD0D3") ;; Light Blue
+  (setq nano-color-strong        "#DFAF8F") ;; Light Orange
+  (setq nano-color-popout        "#CC9393") ;; Light Red
+  (setq nano-color-subtle        "#6F6F6F") ;; Med/Light Grey
+  (setq nano-color-faded         "#7F9F7F") ;; Green
   )
 
 ;; comments are med grey, which means they're... faded.

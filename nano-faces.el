@@ -66,6 +66,11 @@ the face uses a different hue with approximately the same
 intensity as the default face. This is typically used for links."
   :group 'nano)
 
+
+(defface nano-face-salient-alt nil
+  "Um... make shit blue."
+  :group 'nano)
+
 (defface nano-face-faded nil
   "Faded face is for information that are less important.
 It is made by using the same hue as the default but with a lesser
@@ -177,6 +182,10 @@ background color that is barely perceptible."
 
   (set-face-attribute 'nano-face-salient nil
                       :foreground nano-color-salient
+                      :weight 'light)
+
+  (set-face-attribute 'nano-face-salient-alt nil
+                      :foreground nano-color-salient-alt
                       :weight 'light)
 
   (set-face-attribute 'nano-face-faded nil
