@@ -66,11 +66,6 @@ the face uses a different hue with approximately the same
 intensity as the default face. This is typically used for links."
   :group 'nano)
 
-
-(defface nano-face-salient-alt nil
-  "Um... make shit blue."
-  :group 'nano)
-
 (defface nano-face-faded nil
   "Faded face is for information that are less important.
 It is made by using the same hue as the default but with a lesser
@@ -150,6 +145,22 @@ background color that is barely perceptible."
   "Critical face for tags"
   :group 'nano)
 
+(defface nano-face-variable-name nil
+  "foobar"
+  :group 'nano)
+
+(defface nano-face-function-name nil
+  "foobar"
+  :group 'nano)
+
+(defface nano-face-builtin nil
+  "foobar"
+  :group 'nano)
+
+(defface nano-face-constant nil
+  "foobar"
+  :group 'nano)
+
 (defun nano-what-faces (pos)
   "Get the font faces at POS."
   (interactive "d")
@@ -184,16 +195,28 @@ background color that is barely perceptible."
                       :foreground nano-color-salient
                       :weight 'light)
 
-  (set-face-attribute 'nano-face-salient-alt nil
-                      :foreground nano-color-salient-alt
-                      :weight 'light)
-
   (set-face-attribute 'nano-face-faded nil
                       :foreground nano-color-faded
                       :weight 'light)
 
   (set-face-attribute 'nano-face-subtle nil
                       :background nano-color-subtle)
+
+  (set-face-attribute 'nano-face-variable-name nil
+                      :foreground nano-color-variable-name
+                      :weight 'light)
+
+  (set-face-attribute 'nano-face-function-name nil
+                      :foreground nano-color-function-name
+                      :weight 'light)
+
+  (set-face-attribute 'nano-face-constant nil
+                      :foreground nano-color-constant
+                      :weight 'light)
+
+  (set-face-attribute 'nano-face-builtin nil
+                      :foreground nano-color-foreground
+                      :weight 'bold)
 
   (set-face-attribute 'nano-face-header-default nil
                       :foreground nano-color-foreground

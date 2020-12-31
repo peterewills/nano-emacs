@@ -2,9 +2,12 @@
 
 `emacs -q -l nano.el -zenburn`
 
-# Testing an alternative startup file
+# Run with startup file
 
-`emacs -q -l ~/.emacs.nano.test -l nano.el -zenburn`
+`emacs -q -l .emacs -l nano.el -zenburn`
+
+You might consider aliasing this to `nano-emacs` in your `.bash_profile` so that you can
+easily invoke it.
 
 # TODO
 

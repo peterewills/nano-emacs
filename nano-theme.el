@@ -112,12 +112,12 @@
   (set-face 'font-lock-comment-face                    'nano-face-faded)
   (set-face 'font-lock-doc-face                        'nano-face-faded)
   (set-face 'font-lock-string-face                    'nano-face-popout)
-  (set-face 'font-lock-constant-face                 'nano-face-salient)
+  (set-face 'font-lock-constant-face                'nano-face-constant)
   (set-face 'font-lock-warning-face                   'nano-face-popout)
-  (set-face 'font-lock-function-name-face             'nano-face-strong)
-  (set-face 'font-lock-variable-name-face             'nano-face-strong)
-  (set-face 'font-lock-builtin-face                  'nano-face-salient)
-  (set-face 'font-lock-type-face                 'nano-face-salient-alt)
+  (set-face 'font-lock-builtin-face                   'nano-face-builtin)
+  (set-face 'font-lock-type-face               'nano-face-function-name)
+  (set-face 'font-lock-function-name-face      'nano-face-function-name)
+  (set-face 'font-lock-variable-name-face      'nano-face-variable-name)
   (set-face 'font-lock-keyword-face                  'nano-face-salient))
 
 
