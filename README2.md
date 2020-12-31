@@ -6,7 +6,7 @@
 
 `emacs -q -l .emacs -l nano.el -zenburn`
 
-You might consider aliasing this to `nano-emacs` in your `.bash_profile` so that you can
+You might consider aliasing this to `nano_emacs` in your `.bash_profile` so that you can
 easily invoke it.
 
 # TODO
