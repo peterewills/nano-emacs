@@ -5,7 +5,7 @@
   See an overview of Emacs features at[[https://gnu.org][ gnu.org ]] ..........[[https://www.gnu.org/software/emacs/tour][ Guided Tour ]]
   Get help from Emacs users .............................[[https://lists.gnu.org/mailman/listinfo/help-gnu-emacs][ Mailing list ]]
   Read the extensive documentation .....................[[info:emacs][ Documentation ]]
- 
+
 *Quick commands*                   /C: Control, M: alt, command or escape/
 
   Save ................... =C-x C-s=    Help ....................... =C-h=
@@ -18,7 +18,7 @@
 
   Search ..................... =C-s=    Go to line ............. =M-g M-g=
   Replace .................... =M-%=    Execute .................... =M-x=
-  
+
   Start of buffer ............ =M-<=    End of buffer .............. =M->=
   Start of line .............. =C-a=    End of line ................ =C-e=
 
@@ -32,7 +32,7 @@
  [[elisp:tool-bar-mode][ Toggle ]]tool bar                    [[elisp:toggle-truncate-lines][ Toggle ]]line wrap
  [[elisp:scroll-bar-mode][ Toggle ]]scroll bar                  [[elisp:blink-cursor-mode][ Toggle ]]blinking cursor
  [[elisp:menu-bar-mode][ Toggle ]]menu bar                     Select cursor:[[elisp:(set-default 'cursor-type '(hbar . 2))][ HBar ]]|[[elisp:(set-default 'cursor-type '(bar . 2))][ VBar ]]|[[elisp:(set-default 'cursor-type 'box)][ Box ]]
-  
+
 *Install some packages*                                   /[[elisp:(package-list-packages)][ Packages list ]]/
 
  [[elisp:(package-install 'magit)][ magit ]]................................. A Git porcelain inside Emacs

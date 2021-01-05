@@ -18,7 +18,7 @@
 (package-initialize)
 
 ;; Path to nano emacs modules (mandatory)
-(add-to-list 'load-path "/Users/rougier/Documents/GitHub/nano-emacs")
+(add-to-list 'load-path "/Users/peterwills/code/elisp/nano-emacs")
 (add-to-list 'load-path ".")
 
 ;; Window layout (optional)
@@ -60,31 +60,31 @@
 (require 'nano-defaults)
 
 ;; Nano session saving (optional)
-(require 'nano-session)
+;; (require 'nano-session)
 
 ;; Nano header & mode lines (optional)
 (require 'nano-modeline)
 
 ;; Nano key bindings modification (optional)
-(require 'nano-bindings)
+;; (require 'nano-bindings)
 
 ;; Nano counsel configuration (optional)
 ;; Needs "counsel" package to be installed (M-x: package-install)
 ;; (require 'nano-counsel)
 
-;; Welcome message (optional)
-(let ((inhibit-message t))
-  (message "Welcome to GNU Emacs / N Λ N O edition")
-  (message (format "Initialization time: %s" (emacs-init-time))))
+;; ;; Welcome message (optional)
+;; (let ((inhibit-message t))
+;;   (message "Welcome to GNU Emacs / N Λ N O edition")
+;;   (message (format "Initialization time: %s" (emacs-init-time))))
 
-;; Splash (optional)
-(add-to-list 'command-switch-alist '("-no-splash" . (lambda (args))))
-(unless (member "-no-splash" command-line-args)
-  (require 'nano-splash))
+;; ;; Splash (optional)
+;; (add-to-list 'command-switch-alist '("-no-splash" . (lambda (args))))
+;; (unless (member "-no-splash" command-line-args)
+;;   (require 'nano-splash))
 
-;; Help (optional)
-(add-to-list 'command-switch-alist '("-no-help" . (lambda (args))))
-(unless (member "-no-help" command-line-args)
-  (require 'nano-help))
+;; ;; Help (optional)
+;; (add-to-list 'command-switch-alist '("-no-help" . (lambda (args))))
+;; (unless (member "-no-help" command-line-args)
+;;   (require 'nano-help))
 
 (provide 'nano)

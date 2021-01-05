@@ -1,7 +1,7 @@
 ;; -*- lexical-binding: t -*-
 ;; -------------------------------------------------------------------
 ;; GNU Emacs / N Λ N O - Emacs made simple
-;; Copyright (C) 2020 - N Λ N O developers 
+;; Copyright (C) 2020 - N Λ N O developers
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
@@ -125,7 +125,7 @@
 		(propertize filler 'face 'nano-face-header-filler)
 	      (propertize " " 'face 'nano-face-header-filler))
 	    (propertize right 'face 'nano-face-header-default)
-	    (if gui 
+	    (if gui
 		(propertize " "   'face 'nano-face-header-separator))
 	    (mapconcat (lambda (action)
 			 (nano-modeline-make-action (car action) (cdr action)))
@@ -137,12 +137,37 @@
 ;; ---------------------------------------------------------------------
 (defun nano-modeline-mu4e-dashboard-mode-p ()
   (bound-and-true-p mu4e-dashboard-mode))
-  
+
 (defun nano-modeline-mu4e-dashboard-mode ()
   (nano-modeline-compose (nano-modeline-status)
                          "Mail"
                          (nano-modeline-mu4e-context)
                          ""))
+
+;; ---------------------------------------------------------------------
+
+;; we have to handle EIN in a different way, since the EIN library itself is constantly
+;; re-rendering the notebook, and thus re-setting the header-line-format. Fortunately,
+;; it exposes the ein:header-line-format variable for just this purpose.
+
+(defun lastcar (list) (car (last list)))
+
+(defun nano-modeline-ein:notebook-mode ()
+  (let*
+      ((buffer-name (format-mode-line "%b"))
+       (branch      (vc-branch))
+       ;; the buffer-name will be something like
+       ;; "ein:http:blah-blah/foo/baz.ipynb[kernel-name]"
+       ;; We want to just extract "baz.ipynb" as buffer-name-short
+       (notebook-filename (car (split-string (lastcar (split-string buffer-name "/"))
+                                        ".ipynb")))
+       (buffer-name-short (format "ein: %s.ipynb" notebook-filename)))
+  (nano-modeline-compose (nano-modeline-status)
+                         buffer-name-short
+                         ""
+                         (ein:header-line))))
+
+(setq ein:header-line-format '((:eval (nano-modeline-ein:notebook-mode))))
 
 ;; ---------------------------------------------------------------------
 (defun nano-modeline-elfeed-search-mode-p ()
@@ -360,7 +385,7 @@
           (branch      (vc-branch))
           (position    (format-mode-line "%l:%c")))
       (nano-modeline-compose (nano-modeline-status)
-                             buffer-name 
+                             buffer-name
                              (concat "(" mode-name
                                      (if branch (concat ", "
                                              (propertize branch 'face 'italic)))
@@ -447,11 +472,11 @@
 ;; ---------------------------------------------------------------------
 (defun nano-modeline-status ()
   "Return buffer status: read-only (RO), modified (**) or read-write (RW)"
-  
+
   (let ((read-only   buffer-read-only)
         (modified    (and buffer-file-name (buffer-modified-p))))
     (cond (modified  "**") (read-only "RO") (t "RW"))))
-  
+
 ;; ---------------------------------------------------------------------
 (defun nano-modeline-mu4e-context ()
   "Return the current mu4e context as a non propertized string."
@@ -480,16 +505,16 @@
            ((nano-modeline-mu4e-headers-mode-p)    (nano-modeline-mu4e-headers-mode))
 ;;         ((nano-modeline-mu4e-view-mode-p)       (nano-modeline-mu4e-view-mode))
            ((nano-modeline-pdf-view-mode-p)        (nano-modeline-pdf-view-mode))
-	   ((nano-modeline-docview-mode-p)         (nano-modeline-docview-mode))
-	   ((nano-modeline-completion-list-mode-p) (nano-modeline-completion-list-mode))
-	   ((nano-modeline-message-mode-p)         (nano-modeline-message-mode))
+	       ((nano-modeline-docview-mode-p)         (nano-modeline-docview-mode))
+	       ((nano-modeline-completion-list-mode-p) (nano-modeline-completion-list-mode))
+	       ((nano-modeline-message-mode-p)         (nano-modeline-message-mode))
            ((nano-modeline-nano-help-mode-p)       (nano-modeline-nano-help-mode))
            (t                                      (nano-modeline-default-mode)))))))
 
 ;; ---------------------------------------------------------------------
 (defun nano-modeline-update-windows ()
   "Modify the mode line depending on the presence of a window below."
-  
+
   (dolist (window (window-list))
     (with-selected-window window
       (if (or (one-window-p t)
