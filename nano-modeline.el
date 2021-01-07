@@ -146,28 +146,27 @@
 
 ;; ---------------------------------------------------------------------
 
-;; we have to handle EIN in a different way, since the EIN library itself is constantly
-;; re-rendering the notebook, and thus re-setting the header-line-format. Fortunately,
-;; it exposes the ein:header-line-format variable for just this purpose.
+;; since the EIN library itself is constantly re-rendering the notebook, and thus
+;; re-setting the header-line-format, we cannot use the nano-modeline function to set
+;; the header format in a notebook buffer.  Fortunately, EIN exposes the
+;; ein:header-line-format variable for just this purpose.
 
-(defun lastcar (list) (car (last list)))
-
-(defun nano-modeline-ein:notebook-mode ()
-  (let*
-      ((buffer-name (format-mode-line "%b"))
-       (branch      (vc-branch))
-       ;; the buffer-name will be something like
-       ;; "ein:http:blah-blah/foo/baz.ipynb[kernel-name]"
-       ;; We want to just extract "baz.ipynb" as buffer-name-short
-       (notebook-filename (car (split-string (lastcar (split-string buffer-name "/"))
-                                        ".ipynb")))
-       (buffer-name-short (format "ein: %s.ipynb" notebook-filename)))
-  (nano-modeline-compose (nano-modeline-status)
-                         buffer-name-short
-                         ""
-                         (ein:header-line))))
-
-(setq ein:header-line-format '((:eval (nano-modeline-ein:notebook-mode))))
+(with-eval-after-load 'ein
+  (defun nano-modeline-ein-notebook-mode ()
+    (let*
+        ((buffer-name (format-mode-line "%b"))
+         (branch      (vc-branch))
+         ;; the buffer-name will be something like
+         ;; "ein:http:blah-blah/foo/baz.ipynb[kernel-name]"
+         ;; We want to just extract "baz.ipynb" as buffer-name-short
+         (notebook-filename (car (split-string (last (car (split-string buffer-name "/")))
+                                               ".ipynb")))
+         (buffer-name-short (format "ein: %s.ipynb" notebook-filename)))
+      (nano-modeline-compose (if (ein:notebook-modified-p) "**" "RW")
+                             buffer-name-short
+                             ""
+                             (ein:header-line))))
+  (setq ein:header-line-format '((:eval (nano-modeline-ein-notebook-mode)))))
 
 ;; ---------------------------------------------------------------------
 (defun nano-modeline-elfeed-search-mode-p ()
