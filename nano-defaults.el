@@ -26,13 +26,13 @@
 ;; No message in scratch buffer
 (setq initial-scratch-message nil)
 
-;; Initial buffer 
+;; Initial buffer
 (setq initial-buffer-choice nil)
 
 ;; No frame title
-(setq frame-title-format nil)
+(setq frame-title-format "GNU Emacs")
 
-;; No file fialog
+;; No file dialog
 (setq use-file-dialog nil)
 
 ;; No dialog box
@@ -42,22 +42,16 @@
 (setq pop-up-windows nil)
 
 ;; User name
-(setq user-full-name "Nicolas P. Rougier")
+(setq user-full-name "Peter Wills")
 
 ;; User mail address
-(setq user-mail-address "Nicolas.Rougier@inria.fr")
-      
+(setq user-mail-address "peter.e.wills@gmail.com")
+
 ;; No empty line indicators
 (setq indicate-empty-lines nil)
 
 ;; No cursor in inactive windows
 (setq cursor-in-non-selected-windows nil)
-
-;; Text mode is initial mode
-(setq initial-major-mode 'text-mode)
-
-;; Text mode is default major mode
-(setq default-major-mode 'text-mode)
 
 ;; Moderate font lock
 (setq font-lock-maximum-decoration nil)
@@ -67,9 +61,6 @@
 
 ;; No line breat space points
 (setq auto-fill-mode nil)
-
-;; Fill column at 80
-(setq fill-column 80)
 
 ;; No confirmation for visiting non-existent files
 (setq confirm-nonexistent-file-or-buffer nil)
@@ -95,9 +86,6 @@
     (menu-bar-mode t) ;; When nil, focus problem on OSX
   (menu-bar-mode -1))
 
-;; Navigate windows using shift+direction
-(windmove-default-keybindings)
-
 ;; Tab behavior
 ;; (setq tab-always-indent 'complete)
 ;; (global-company-mode)
@@ -106,14 +94,6 @@
 
 ;; Pixel scroll (as opposed to char scrool)
 (pixel-scroll-mode t)
-
-;; Mac specific
-(setq ns-use-native-fullscreen t
-      mac-option-key-is-meta nil
-      mac-command-key-is-meta t
-      mac-command-modifier 'meta
-      mac-option-modifier nil
-      mac-use-title-bar nil)
 
 ;; Make sure clipboard works properly in tty mode on OSX
 (defun copy-from-osx ()

@@ -32,7 +32,7 @@
 
   (setq nano-color-function-name   "#8CD0D3") ;; Light Blue
   (setq nano-color-variable-name   "#DFAF8F") ;; Light Orange
-  (setq nano-color-constant        "#9fc59f") ;; Light Green
+  (setq nano-color-constant        "#9FC59F") ;; Light Green
   )
 
 ;; comments are med grey, which means they're... faded.
